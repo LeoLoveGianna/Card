@@ -48,11 +48,9 @@ namespace Test
         private System.Windows.Forms.PictureBox pictureBox1;
         private Timer timer1;
         private Button button3;
-        private Button button4;
         private Label label7;
         private TextBox textBox11;
         private Button button5;
-        private Button button6;
         private IContainer components;
 
 
@@ -214,11 +212,9 @@ namespace Test
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -418,19 +414,10 @@ namespace Test
             // 
             this.button3.Location = new System.Drawing.Point(440, 257);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 32);
+            this.button3.Size = new System.Drawing.Size(182, 32);
             this.button3.TabIndex = 14;
-            this.button3.Text = "打开PDF-100";
+            this.button3.Text = "打开PDF(打印时请设75%）";
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(440, 305);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 32);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "打印-100";
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -450,31 +437,20 @@ namespace Test
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(534, 305);
+            this.button5.Location = new System.Drawing.Point(440, 305);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 32);
+            this.button5.Size = new System.Drawing.Size(182, 32);
             this.button5.TabIndex = 18;
-            this.button5.Text = "打印-78";
+            this.button5.Text = "打印";
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(534, 257);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 32);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "打开PDF-78";
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
             this.ClientSize = new System.Drawing.Size(626, 340);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
@@ -707,22 +683,6 @@ namespace Test
 
             string destfilename = $"{textBox1.Text}-100-正反面";
             System.Diagnostics.Process.Start("explorer.exe", Path.Combine(folder, destfilename + ".pdf"));//自动打开文件夹
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            string destfilename = $"{textBox1.Text}-78-正反面";
-            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(folder, destfilename + ".pdf"));//自动打开文件夹
-        }
-
-        private void button4_Click(object sender, System.EventArgs e)
-        {
-            string destfilename = $"{textBox1.Text}-100-正反面";
-            IniFiles inifile = new IniFiles(AppDomain.CurrentDomain.BaseDirectory + @"PrintName.ini");
-            inifile.WriteString("PrintSetting", "Name", textBox11.Text);
-
-            PdfPrint print = new PdfPrint(Path.Combine(folder, destfilename + ".pdf"));
-            print.PrintX(textBox11.Text);
         }
 
         private void button5_Click(object sender, EventArgs e)
