@@ -454,7 +454,7 @@ namespace Test
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(88, 32);
             this.button5.TabIndex = 18;
-            this.button5.Text = "打印-75";
+            this.button5.Text = "打印-78";
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
@@ -463,7 +463,7 @@ namespace Test
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(88, 32);
             this.button6.TabIndex = 19;
-            this.button6.Text = "打开PDF-75";
+            this.button6.Text = "打开PDF-78";
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
@@ -613,7 +613,7 @@ namespace Test
                 if (isFrontSave && isBackSave)
                 {
                     CombinImage(frontpath.ToString(), backpath.ToString(), $@"{folder}\{info.m_szName}-100-正反面", 100);
-                    CombinImage(frontpath.ToString(), backpath.ToString(), $@"{folder}\{info.m_szName}-75-正反面", 75);
+                    CombinImage(frontpath.ToString(), backpath.ToString(), $@"{folder}\{info.m_szName}-78-正反面", 78);
                 }
                 else
                     MessageBox.Show(this, "正面照或反面照导出失败", "错误信息！", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
@@ -711,7 +711,7 @@ namespace Test
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string destfilename = $"{textBox1.Text}-75-正反面";
+            string destfilename = $"{textBox1.Text}-78-正反面";
             System.Diagnostics.Process.Start("explorer.exe", Path.Combine(folder, destfilename + ".pdf"));//自动打开文件夹
         }
 
@@ -727,7 +727,7 @@ namespace Test
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string destfilename = $"{textBox1.Text}-75-正反面";
+            string destfilename = $"{textBox1.Text}-78-正反面";
             IniFiles inifile = new IniFiles(AppDomain.CurrentDomain.BaseDirectory + @"PrintName.ini");
             inifile.WriteString("PrintSetting", "Name", textBox11.Text);
 
@@ -764,8 +764,8 @@ namespace Test
             else
             {
                 g1.FillRectangle(Brushes.White, new Rectangle(0, 0, width, height));
-                g1.DrawImage(map1, 0, 50, img1.Width * (float)0.75, img2.Height * (float)0.75);
-                g1.DrawImage(map2, 0, img2.Width + 10, img2.Width * (float)0.75, img2.Height * (float)0.75);
+                g1.DrawImage(map1, 0, 50, img1.Width * (float)0.78, img2.Height * (float)0.78);
+                g1.DrawImage(map2, 0, img2.Width + 10, img2.Width * (float)0.78, img2.Height * (float)0.78);
             }
 
             map1.Dispose();
